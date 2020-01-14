@@ -21,17 +21,15 @@ namespace Project_New_Genesis
         {
             using (TextFieldParser parser = new TextFieldParser(PATH + fileName))
             {
-                parser.TextFieldType = FieldType.Delimited;
-                parser.SetDelimiters("/");
+                //parser.TextFieldType = FieldType.Delimited;
+               // parser.SetDelimiters("/");
                 int i = 0;
                 List<DailyReading> readings = new List<DailyReading>();
                 while (!parser.EndOfData)
                 {
                     //Processing row
-                    string[] fields = parser.ReadFields();
-                    foreach (string field in fields)
-                    {
-                        string itTemp = field.Replace(" ", "");
+                        string fields = parser.ReadLine();
+                        string itTemp = fields.Replace(" ", "");
                         string[] temp = itTemp.Split(',');
                         int id = i;
                         string date = temp[0];
@@ -44,7 +42,6 @@ namespace Project_New_Genesis
                         readings.Add(newReading);
 
                         i++;
-                    }
                 }
                 return readings;
             }

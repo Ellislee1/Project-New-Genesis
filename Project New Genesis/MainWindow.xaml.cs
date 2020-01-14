@@ -28,7 +28,7 @@ namespace Project_New_Genesis
         public static String today = DateTime.Now.ToString("dd-MMM");
         public Player player;
         public bool playerShown = false;
-        DailyReading todaysReading = null;
+        readonly DailyReading todaysReading = null;
         public static String[] audioFiles;
         public MainWindow()
         {
@@ -43,7 +43,7 @@ namespace Project_New_Genesis
 
             FileHandling reader = new FileHandling();
 
-            List<DailyReading> readings = reader.GetFile("Readings.csv");
+            List<DailyReading> readings = reader.GetFile("Readings.txt");
             foreach (DailyReading reading in readings)
             {
                 if (reading.Date.Equals(today))
@@ -75,6 +75,7 @@ namespace Project_New_Genesis
             {
 
                 string[] file = { lstBox.SelectedItem.ToString()+".mp3" };
+                Console.WriteLine(file[0]);
 
                 if (playerShown)
                 {
@@ -105,12 +106,12 @@ namespace Project_New_Genesis
                 switch (book)
                 {
                     case 0:
-                        books = GetBooks("A01");
+                        books = GetBooks("Gen");
                         AddToList(books);
                         break;
 
                     case 1:
-                        books = GetBooks("A02");
+                        books = GetBooks("Matt");
                         AddToList(books);
                         break;
 
@@ -212,5 +213,22 @@ namespace Project_New_Genesis
             }
         }
 
+        private void LstReadings_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!lstReadings.SelectedItem.ToString().StartsWith("Readings") & !lstReadings.SelectedItem.ToString().Equals(null)) {
+                string[] file = { lstReadings.SelectedItem.ToString() + ".mp3" };
+                Console.WriteLine(file[0]);
+
+                if (playerShown)
+                {
+                    player.Close();
+                    playerShown = false;
+                }
+
+                player = new Player(file, today);
+                player.Show();
+                playerShown = true;
+            }
+        }
     }   
 }

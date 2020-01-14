@@ -42,21 +42,21 @@
             this.wmp.Location = new System.Drawing.Point(1, 0);
             this.wmp.Name = "wmp";
             this.wmp.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmp.OcxState")));
-            this.wmp.Size = new System.Drawing.Size(210, 202);
+            this.wmp.Size = new System.Drawing.Size(312, 236);
             this.wmp.TabIndex = 0;
             // 
             // Player
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(212, 201);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(314, 235);
             this.Controls.Add(this.wmp);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(500, 500);
+            this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.Name = "Player";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Player";
             this.Load += new System.EventHandler(this.Player_Load);
             ((System.ComponentModel.ISupportInitialize)(this.wmp)).EndInit();
             this.ResumeLayout(false);

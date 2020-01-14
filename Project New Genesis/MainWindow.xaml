@@ -25,7 +25,7 @@
                         <ComboBoxItem Content="2nd Readings" HorizontalAlignment="Left" Width="154"/>
                         <ComboBoxItem Content="3rd Readings" HorizontalAlignment="Left" Width="154"/>
                     </ComboBox>
-                    <ListBox x:Name="lstReadings" Margin="10,50,10,10" SelectionChanged="LstBox_SelectionChanged"/>
+                    <ListBox x:Name="lstReadings" Margin="10,50,10,10" SelectionChanged="LstReadings_SelectionChanged"/>
                 </Grid>
             </TabItem>
             <TabItem Header="All Readings">
